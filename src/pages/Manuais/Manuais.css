@@ -1,20 +1,6 @@
-/* src/pages/Manuais.css */
-.manuais {
+.manuals {
     padding: 20px;
-}
-
-.manuais h1 {
     text-align: center;
-    margin-bottom: 30px;
-}
-
-.categoria {
-    margin-bottom: 40px;
-}
-
-.categoria h2 {
-    margin-bottom: 20px;
-    color: #333;
 }
 
 .manuals-grid {
@@ -24,22 +10,14 @@
 }
 
 .manual-card {
-    background: #f9f9f9;
-    padding: 15px;
     border: 1px solid #ddd;
     border-radius: 8px;
-    text-align: center;
-    transition: box-shadow 0.3s ease;
+    padding: 15px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
-.manual-card h3 {
-    margin-bottom: 10px;
-    font-size: 18px;
-}
-
-.manual-card p {
-    margin-bottom: 10px;
-    color: #555;
+.manual-card h2 {
+    margin: 0 0 10px;
 }
 
 .manual-card a {
@@ -49,8 +27,4 @@
 
 .manual-card a:hover {
     text-decoration: underline;
-}
-
-.manual-card:hover {
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }

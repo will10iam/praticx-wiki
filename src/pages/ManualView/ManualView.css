@@ -1,34 +1,29 @@
-/* src/pages/ManualView.css */
 .manual-view {
     padding: 20px;
-    text-align: center;
+    max-width: 800px;
+    margin: 0 auto;
 }
 
 .manual-view h1 {
     margin-bottom: 10px;
 }
 
-.manual-view p {
-    margin-bottom: 20px;
-    color: #555;
-}
-
-.manual-view iframe {
+.pdf-viewer {
+    margin: 20px 0;
     border: 1px solid #ddd;
     border-radius: 8px;
+    overflow: hidden;
 }
 
-.download-btn {
-    display: inline-block;
-    margin-top: 20px;
-    padding: 10px 20px;
+button {
+    padding: 10px 15px;
     background-color: #007bff;
     color: white;
-    text-decoration: none;
+    border: none;
     border-radius: 5px;
-    font-weight: bold;
+    cursor: pointer;
 }
 
-.download-btn:hover {
+button:hover {
     background-color: #0056b3;
 }
