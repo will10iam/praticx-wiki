@@ -1,13 +1,13 @@
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import Home from './pages/Home';
-import Manuais from './pages/Manuais';
-import ManualView from './pages/ManualView';
-import Upload from './pages/Upload';
-import Login from './pages/Login';
-import Perfil from './pages/Perfil';
-import Navbar from './components/Navbar';
-import Footer from './components/Footer';
+import Home from './pages/Home/Home';
+import Manuais from './pages/Manuais/Manuais';
+import ManualView from './pages/ManualView/ManualView';
+import Upload from './pages/Upload/Upload';
+import Login from './pages/Login/Login';
+import Perfil from './pages/Perfil/Perfil';
+import Navbar from './components/Navbar/Navbar';
+import Footer from './components/Footer/Footer';
 
 const App = () => {
   return (

@@ -1,0 +1,53 @@
+/* src/pages/Upload.css */
+.upload {
+    padding: 20px;
+    max-width: 500px;
+    margin: 0 auto;
+}
+
+.upload h1 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.upload form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.upload label {
+    font-weight: bold;
+}
+
+.upload input,
+.upload textarea,
+.upload button {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+.upload textarea {
+    resize: none;
+    height: 100px;
+}
+
+.upload button {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+.upload button:hover {
+    background-color: #0056b3;
+}
+
+.upload .status {
+    margin-top: 20px;
+    text-align: center;
+    font-weight: bold;
+    color: #555;
+}
