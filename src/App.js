@@ -8,21 +8,41 @@ import Login from './pages/Login/Login';
 import Perfil from './pages/Perfil/Perfil';
 import Navbar from './components/Navbar/Navbar';
 import Footer from './components/Footer/Footer';
+import { AuthProvider } from './AuthContext';
+import ProtectedRoute from './ProtectedRoute';
 
 const App = () => {
   return (
-    <Router>
-      <Navbar />
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/manuais" element={<Manuais />} />
-        <Route path="/manual/:id" element={<ManualView />} />
-        <Route path="/upload" element={<Upload />} />
-        <Route path="/login" element={<Login />} />
-        <Route path="/perfil" element={<Perfil />} />
-      </Routes>
-      <Footer />
-    </Router>
+    <AuthProvider>
+      <Router>
+        <Navbar />
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/manuais"
+            element={
+              <ProtectedRoute>
+                <Manuais />
+              </ProtectedRoute>} />
+          <Route path="/manual/:id"
+            element={
+              <ProtectedRoute>
+                <ManualView />
+              </ProtectedRoute>} />
+          <Route path="/upload"
+            element={
+              <ProtectedRoute>
+                <Upload />
+              </ProtectedRoute>} />
+          <Route path="/login" element={<Login />} />
+          <Route path="/perfil"
+            element={
+              <ProtectedRoute>
+                <Perfil />
+              </ProtectedRoute>} />
+        </Routes>
+        <Footer />
+      </Router>
+    </AuthProvider>
   );
 };
 

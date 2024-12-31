@@ -2,6 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import './Navbar.css';
 import Logo from '../../assets/logo.svg'
+import Logout from '../Logout/Logout';
 
 const Navbar = () => {
     return (
@@ -17,6 +18,7 @@ const Navbar = () => {
                 <Link to='/manuais'>Manuais</Link>
                 <Link to='/upload'>Upload</Link>
                 <Link to='/login'>Login</Link>
+                <Logout />
             </div>
         </nav>
     );
