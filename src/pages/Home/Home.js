@@ -1,35 +1,53 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
+import { getFirestore, collection, getDocs, query, orderBy } from "firebase/firestore";
+import { Link } from 'react-router-dom';
 import './Home.css';
 
 
+
 const Home = () => {
-    const mockManuals = [
-        { id: 1, titulo: 'Manual de TI', descricao: 'Guia completo para o setor de TI' },
-        { id: 2, titulo: 'Manual Administrativo', descricao: 'Procedimentos administrativos' },
-        { id: 3, titulo: 'Políticas de Segurança', descricao: 'Orientações de segurança' },
-    ]
+    const [manuals, setManuals] = useState([]);
+
+    useEffect(() => {
+        const fetchManuals = async () => {
+            try {
+                const db = getFirestore();
+                const manualsRef = collection(db, "manuals");
+                const manualsQuery = query(manualsRef, orderBy("uploadedAt", "desc"));
+                const snapshot = await getDocs(manualsQuery);
+                const fetchedManuals = snapshot.docs.map(doc => ({ id: doc.id, ...doc.data() }));
+                setManuals(fetchedManuals);
+            } catch (error) {
+                console.error("Erro ao buscar manuais:", error);
+            }
+        };
+
+        fetchManuals();
+    }, []);
+
     return (
-        <div className='home'>
+        <div className="home">
+            <h1>Wiki Suporte Praticx</h1>
 
-
-            <div className='search-bar'>
-                <input type='text' placeholder='Pesquisando manuais...' />
-                <select>
-                    <option value=''>Filtrar por...</option>
-                    <option value='categoria'>Categoria</option>
-                    <option value='titulo'>Título</option>
-                </select>
-                <button>Buscar</button>
-            </div>
-
-            <div className='manuals-list'>
-                {mockManuals.map((manual) => (
-                    <div key={manual.id} className='manual-card'>
-                        <h3>{manual.titulo}</h3>
-                        <p>{manual.descricao}</p>
-                    </div>
-                ))}
-            </div>
+            <section className="recent-manuals">
+                <h2>Manuais Recentes</h2>
+                <div className="manuals-grid">
+                    {manuals.length === 0 ? (
+                        <p>Nenhum manual encontrado.</p>
+                    ) : (
+                        manuals.map(manual => (
+                            <div key={manual.id} className="manual-card">
+                                <h3>{manual.titulo}</h3>
+                                <p><strong>Categoria:</strong> {manual.categoria}</p>
+                                <small>Publicado em: {new Date(manual.uploadedAt.seconds * 1000).toLocaleDateString()}</small>
+                                <Link to={`/manual/${manual.id}`}>
+                                    <button>Visualizar Manual</button>
+                                </Link>
+                            </div>
+                        ))
+                    )}
+                </div>
+            </section>
         </div>
     );
 };
