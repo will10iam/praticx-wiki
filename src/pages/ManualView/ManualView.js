@@ -50,15 +50,6 @@ const ManualView = () => {
             <h1>{manual.titulo}</h1>
             <p>{manual.descricao}</p>
             <p><strong>Categoria:</strong> {manual.category}</p>
-            <div className="pdf-viewer">
-                <iframe
-                    src={`${manual.fileUrl}#toolbar=0`}
-                    title={manual.titulo}
-                    width='100%'
-                    height='600px'
-                ></iframe>
-
-            </div>
 
             <a href={manual.fileUrl} download>
                 Baixar PDF
