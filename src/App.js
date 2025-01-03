@@ -6,6 +6,7 @@ import ManualView from './pages/ManualView/ManualView';
 import Upload from './pages/Upload/Upload';
 import Login from './pages/Login/Login';
 import Perfil from './pages/Perfil/Perfil';
+import CategoryManagement from './pages/CategoryManagement/CategoryManagement';
 import Navbar from './components/Navbar/Navbar';
 import Footer from './components/Footer/Footer';
 import { AuthProvider } from './AuthContext';
@@ -39,6 +40,12 @@ const App = () => {
               <ProtectedRoute>
                 <Perfil />
               </ProtectedRoute>} />
+          <Route path="/gerenciar-categorias"
+            element={
+              <ProtectedRoute>
+                <CategoryManagement />
+              </ProtectedRoute>
+            } />
         </Routes>
         <Footer />
       </Router>
